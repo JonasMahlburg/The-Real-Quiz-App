@@ -1,4 +1,4 @@
-let questions [
+let questions = [
     {
         "question": "Wer wohnt in der Ananas ganz tief im Meer?",
         "answer_1": "Sephiroth",
@@ -63,6 +63,21 @@ let questions [
         "answer_4": "Thyrion",
         "correct_answer": 4,
     },
-
-
 ];
+
+let currentQuestion = 0;
+
+function init(){
+  document.getElementById('questionAmount').innerHTML= questions.length;
+  showQuestion();
+}
+
+function showQuestion(){
+    let question = questions[currentQuestion];
+document.getElementById('question-text').innerHTML= question['question'];
+document.getElementById('answer_1').innerHTML= question['answer_1'];
+document.getElementById('answer_2').innerHTML= question['answer_2'];
+document.getElementById('answer_3').innerHTML= question['answer_3'];
+document.getElementById('answer_4').innerHTML= question['answer_4'];
+
+}
