@@ -1,0 +1,23 @@
+body{
+    background-color: blue !important;
+}
+
+.container{
+    background-color: blue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-card{
+    width: 30rem;
+}
+
+.question-footer{
+   border-top: 1px solid rgb(0,0,0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+}
