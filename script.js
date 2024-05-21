@@ -65,6 +65,8 @@ let questions = [
     },
 ];
 
+let rightQuestions = 0;
+
 let currentQuestion = 0;
 
 function init(){
@@ -73,14 +75,61 @@ function init(){
 }
 
 function showQuestion(){
+   
+   if (currentQuestion>=questions.length){
+
+document.getElementById('endScreen').style='';
+document.getElementById('quiz-body').style='display: none;';
+document.getElementById('amount-of-questions').innerHTML= questions.length;
+document.getElementById('amount-of-right-questions').innerHTML= rightQuestions;
+document.getElementById('header-img').src = './img/winner-3190947_1280.jpg';
+   }else{
     let question = questions[currentQuestion];
-document.getElementById('question-text').innerHTML= question['question'];
+document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
+document.getElementById('question-text').innerHTML = question['question'];
 document.getElementById('answer_1').innerHTML= question['answer_1'];
 document.getElementById('answer_2').innerHTML= question['answer_2'];
 document.getElementById('answer_3').innerHTML= question['answer_3'];
 document.getElementById('answer_4').innerHTML= question['answer_4'];
+   };
+    
 }
 
-function answer(){
-    
+function answer(selection){
+    let question = questions[currentQuestion];
+    // console.log('selected answer is', selection);
+    let selectedQuestionNumber= selection.slice(-1);
+    // console.log('selectedQuestionNumber is',selectedQuestionNumber);
+    // console.log('Current Question is', question['correct_answer']);
+let idOfCorrectAnswer =`answer_${question['correct_answer']}` ; 
+    if (selectedQuestionNumber == question['correct_answer']){
+        console.log('Richtig :)');
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
+    }else{
+        console.log('leider Falsch :(');
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfCorrectAnswer).parentNode.classList.add('bg-success');
+    }
+
+    document.getElementById('next-button').disabled=false;
+}
+
+function nextQuestion(){
+currentQuestion++;
+document.getElementById('next-button').disabled=true;
+resetAnswers();
+showQuestion();
+
+}
+
+function resetAnswers(){
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }

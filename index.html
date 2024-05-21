@@ -19,42 +19,55 @@
 
       <div class="container">
         <div class="card question-card">
-            <img src="./img/question-mark.jpg" class="card-img-top" alt="Fragezeichen">
-            <div class="card-body">
+            <img src="./img/question-mark.jpg" id="header-img" class="card-img-top" alt="Fragezeichen">
+
+            <div class="card-body" id="endScreen" style='display: none;'>
+               <div class="text-center final-headline">
+                Geschafft Dude
+               </div>
+        
+            <div class="text-center">du hast <b id="amount-of-right-questions">xxx</b> von <b id="amount-of-questions">xxx</b>  Fragen richtig beantwortet
+
+            </div>
+            </div>
+
+            <div class="card-body" id="quiz-body">
               <h5 class="card-title" id="question-text">Frage</h5>
               
-              <div class="card answer-choice mb-2">
+              <div class="card answer-choice mb-2" onclick="answer('answer_1')">
                 <div class="card-body" id="answer_1">
                   Antwort 1.
                 </div>
               </div>
               
-              <div class="card answer-choice mb-2">
+              <div class="card answer-choice mb-2" onclick="answer('answer_2')">
                 <div class="card-body" id="answer_2">
                   Antwort 2.
                 </div>
               </div>
               
-              <div class="card answer-choice mb-2">
+              <div class="card answer-choice mb-2" onclick="answer('answer_3')">
                 <div class="card-body" id="answer_3">
                   Antwort 3.
                 </div>
               </div>
               
-              <div class="card answer-choice mb-2">
+              <div class="card answer-choice mb-2" onclick="answer('answer_4')">
                 <div class="card-body" id="answer_4">
                   Antwort 4.
                 </div>
               </div>
-            </div>
 
-            <div class="question-footer">
+              <div class="question-footer">
                 <span>
-                Frage <b>1</b> von <b id="questionAmount"></b>
+                Frage <b id="questionNumber">1</b> von <b id="questionAmount"></b>
                 </span>
 
-                <button  class="btn btn-primary">nächste Frage</button>
+                <button onclick="nextQuestion()"  class="btn btn-primary" id="next-button" disabled>nächste Frage</button>
+              </div>
             </div>
+
+            
           </div>
       </div>
 </body>

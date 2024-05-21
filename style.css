@@ -19,10 +19,27 @@ body{
     background-color: rgba(0,0,0,0.05);
 }
 
+.bg-success, .bg-danger{
+    color:white
+}
+
 .question-footer{
    border-top: 1px solid rgb(0,0,0, 0.4);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 14px;
+}
+
+.width-100{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.final-headline{
+    font-size: 38px;
+    margin-bottom: 32px;
 }
