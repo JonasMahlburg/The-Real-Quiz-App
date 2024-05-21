@@ -14,6 +14,11 @@ body{
     width: 30rem;
 }
 
+.answer-choice:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
+}
+
 .question-footer{
    border-top: 1px solid rgb(0,0,0, 0.4);
     display: flex;
