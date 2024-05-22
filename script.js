@@ -66,8 +66,9 @@ let questions = [
 ];
 
 let rightQuestions = 0;
-
 let currentQuestion = 0;
+let Audio_Success = new Audio('Audio/success.mp3');
+let Audio_Fail = new Audio('Audio/fail.mp3');
 
 function init(){
   document.getElementById('questionAmount').innerHTML= questions.length;
@@ -85,6 +86,10 @@ document.getElementById('amount-of-right-questions').innerHTML= rightQuestions;
 document.getElementById('header-img').src = './img/winner-3190947_1280.jpg';
    }else{
     let question = questions[currentQuestion];
+    let percent= (currentQuestion +1) / questions.length;
+    percent = Math.round(percent *100);
+document.getElementById('progress-bar').innerHTML = `${percent}%`;
+document.getElementById('progress-bar').style = `width:${percent}%;`;
 document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
 document.getElementById('question-text').innerHTML = question['question'];
 document.getElementById('answer_1').innerHTML= question['answer_1'];
@@ -105,11 +110,13 @@ let idOfCorrectAnswer =`answer_${question['correct_answer']}` ;
     if (selectedQuestionNumber == question['correct_answer']){
         console.log('Richtig :)');
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        Audio_Success.play();
         rightQuestions++;
     }else{
         console.log('leider Falsch :(');
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfCorrectAnswer).parentNode.classList.add('bg-success');
+        Audio_Fail.play();
     }
 
     document.getElementById('next-button').disabled=false;
@@ -132,4 +139,14 @@ function resetAnswers(){
     document.getElementById('answer_3').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
+
+function newGame(){
+    document.getElementById('header-img').src = './img/question-mark.jpg';
+    document.getElementById('quiz-body').style='';
+    document.getElementById('endScreen').style='display: none;';
+  
+   rightQuestions = 0;
+   currentQuestion = 0;
+   init();
 }

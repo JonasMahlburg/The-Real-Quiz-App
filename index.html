@@ -21,14 +21,22 @@
         <div class="card question-card">
             <img src="./img/question-mark.jpg" id="header-img" class="card-img-top" alt="Fragezeichen">
 
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+              </div>
+
             <div class="card-body" id="endScreen" style='display: none;'>
                <div class="text-center final-headline">
                 Geschafft Dude
                </div>
         
             <div class="text-center">du hast <b id="amount-of-right-questions">xxx</b> von <b id="amount-of-questions">xxx</b>  Fragen richtig beantwortet
-
             </div>
+
+            <div class="newGame-Button-row">
+              <button onclick="newGame()"  class="btn btn-primary">nochmal Versuchen</button>
+            </div>
+            
             </div>
 
             <div class="card-body" id="quiz-body">

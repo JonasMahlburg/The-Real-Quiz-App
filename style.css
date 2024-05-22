@@ -43,3 +43,10 @@ body{
     font-size: 38px;
     margin-bottom: 32px;
 }
+
+.newGame-Button-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px
+}
